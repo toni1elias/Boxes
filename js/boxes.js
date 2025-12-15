@@ -143,22 +143,24 @@ function calculate(id) {
     if (captured1 + captured2 === 8) { // Game End:
         turnPlayer1[0].style.visibility = "hidden";
         turnPlayer2[0].style.visibility = "hidden";
-        if (captured1 > captured2) {
-            controlPopup('popup');
-            gameResult.textContent = "Player 1 wins.";
-            gameResult.style.color = 'var(--color-random-1)';
-            celebrateWin();
-        }
-        else if (captured1 < captured2) {
-            controlPopup('popup');
-            gameResult.textContent = "Player 2 wins.";
-            gameResult.style.color = 'var(--color-random-2)';
-            celebrateWin();
-        }
-        else {
-            controlPopup('popup');
-            gameResult.textContent = "Draw.";
-        }
+        setTimeout(() => {
+            if (captured1 > captured2) {
+                gameResult.textContent = "Player 1 wins.";
+                gameResult.style.color = 'var(--color-random-1)';
+                controlPopup('popup');
+                celebrateWin();
+            }
+            else if (captured1 < captured2) {
+                gameResult.textContent = "Player 2 wins.";
+                gameResult.style.color = 'var(--color-random-2)';
+                controlPopup('popup');
+                celebrateWin();
+            }
+            else {
+                controlPopup('popup');
+                gameResult.textContent = "Draw.";
+            }
+        }, 1111);
     }
 
 }
