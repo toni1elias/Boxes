@@ -341,6 +341,10 @@ main {
     :root {
         --space-button-long: 6rem;
     }
+
+    .board {
+        height: 65vh;
+    }
 }
 
 @media (max-height: 667px) {
@@ -400,7 +404,7 @@ main {
     .turn-container-player-1,
     .turn-container-player-2 {
         left: auto;
-        right: 12%;
+        right: 15%;
         transform: translateX(100%);
     }
 }
