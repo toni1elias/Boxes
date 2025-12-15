@@ -367,6 +367,14 @@ main {
         background-color: var(--color-gray-lighter);
     }
 
+    :root {
+        --space-button-long: 6.5rem;
+    }
+
+    .board {
+        height: 77vh;
+    }
+
     .score-board {
         flex-direction: column;
         height: 100%;
