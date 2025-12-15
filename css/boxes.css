@@ -26,7 +26,7 @@ header {
     height: var(--space-height);
 }
 
-footer {
+/* footer {
     text-align: center;
     position: fixed;
     left: 0;
@@ -34,7 +34,7 @@ footer {
     bottom: 0;
     padding: 1rem;
     z-index: -1;
-}
+} */
 
 main {
     display: flex;
@@ -61,7 +61,7 @@ main {
 }
 
 #menu li {
-    padding: 1.25rem;
+    padding: 1.2rem;
     border-bottom: 0.1rem solid var(--color-gray-dark);
     background-color: var(--color-gray-darker);
 }
@@ -120,19 +120,25 @@ main {
     background: var(--color-light);
 }
 
+.design,
 .version {
     position: absolute;
     bottom: 0;
     height: 5rem;
     font-weight: 600;
-    padding-left: 1.25rem;
+    padding-left: 1.2rem;
+}
+
+.version {
+    bottom: 2.5rem;
+    font-weight: 200;
 }
 
 .board {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 75vh;
 }
 
 .main-container {
@@ -343,7 +349,7 @@ main {
     }
 
     .board {
-        height: 63vh;
+        height: 73vh;
     }
 }
 
@@ -353,7 +359,7 @@ main {
     }
 
     .board {
-        height: 63vh;
+        height: 73vh;
     }
 }
 
@@ -367,16 +373,16 @@ main {
         width: 100%;
     }
 
-    footer {
+    /* footer {
         background-color: var(--color-gray-lighter);
-    }
+    } */
 
     :root {
         --space-button-long: 6.5rem;
     }
 
     .board {
-        height: 77vh;
+        height: 90vh;
     }
 
     .score-board {
