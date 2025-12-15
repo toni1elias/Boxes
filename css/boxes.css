@@ -33,6 +33,7 @@ footer {
     right: 0;
     bottom: 0;
     padding: 1rem;
+    z-index: -1;
 }
 
 main {
@@ -128,8 +129,10 @@ main {
 }
 
 .board {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
 }
 
 .main-container {
@@ -239,10 +242,7 @@ main {
     position: relative;
     background: transparent;
     display: flex;
-    /* Liquid Effect End */
 }
-
-/* Liquid Effect Start */
 
 .box-game::before {
     content: "";
@@ -260,9 +260,8 @@ main {
 
 .box-game.filled::before {
     transform: scaleY(1);
+    /* Liquid Effect End */
 }
-
-/* Liquid Effect End */
 
 .dot {
     height: var(--space-button-short);
@@ -338,6 +337,22 @@ main {
     background-color: var(--color-gray-darker);
 }
 
+@media (max-height: 768px) {
+    :root {
+        --space-button-long: 6rem;
+    }
+}
+
+@media (max-height: 667px) {
+    :root {
+        --space-button-long: 5rem;
+    }
+
+    .board {
+        height: 63vh;
+    }
+}
+
 @media screen and (min-width: 768px) {
     main {
         flex-direction: row;
@@ -355,11 +370,6 @@ main {
     .score-board {
         flex-direction: column;
         height: 100%;
-    }
-
-    .board {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
     }
 
     .player {
