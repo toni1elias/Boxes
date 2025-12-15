@@ -5,7 +5,7 @@ const popupHelp = document.getElementById('popup-help');
 // popup.addEventListener('click', (e) => { if (e.target === popup) { controlPopup('popup', 'none'); } });
 popupHelp.addEventListener('click', (e) => { if (e.target === popupHelp) { controlPopup('popupHelp', 'none'); } });
 
-const soundTap = new Audio('https://docs.google.com/uc?export=download&id=1WBt2m-Dyye7p5gHiepAToz5kj1j1b5He');
+const soundTap = new Audio('sound/tap.mp3');
 const soundSplash = new Audio('sound/splash.mp3');
 const soundWin = new Audio('sound/win.mp3');
 soundTap.volume = soundSplash.volume = soundWin.volume = 1;
