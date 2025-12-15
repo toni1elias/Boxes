@@ -160,7 +160,9 @@ function calculate(id) {
             gameResult.textContent = "Draw.";
         }
     }
+
 }
+function goHome() { window.open(`https://t.me/IT0001Bot`, '_blank'); }
 
 function toggleMenu() { document.getElementById("menu").classList.toggle("active"); }
 
