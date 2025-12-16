@@ -7,7 +7,7 @@
     --color-gray-darker: #333333;
     --color-dark: #222222;
     --space-button-short: 1rem;
-    --space-button-long: 7rem;
+    --space-button-long: 6.5rem;
     --space-height: 3.5rem;
 }
 
@@ -138,7 +138,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
 }
 
 .main-container {
@@ -162,7 +161,7 @@ main {
     justify-content: space-around;
     margin-bottom: 1rem;
     background-color: transparent;
-    height: 6rem;
+    height: 5rem;
 }
 
 .score-player {
@@ -216,6 +215,25 @@ main {
     border-radius: 2rem;
     transform: scale(1.15);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+.shine {
+    animation: shine 1s ease-in-out;
 }
 
 .button-game {
@@ -347,23 +365,28 @@ main {
     :root {
         --space-button-long: 6rem;
     }
-
-    .board {
-        height: 73vh;
-    }
 }
 
 @media (max-height: 667px) {
     :root {
         --space-button-long: 5rem;
     }
+}
 
-    .board {
-        height: 73vh;
+@media screen and (max-width: 1024px) {
+    .main-container {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 55%;
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
+    :root {
+        --space-button-long: 7rem;
+    }
+
     main {
         flex-direction: row;
         justify-content: space-around;
@@ -373,21 +396,13 @@ main {
         width: 100%;
     }
 
-    /* footer {
-        background-color: var(--color-gray-lighter);
-    } */
-
-    :root {
-        --space-button-long: 6.5rem;
-    }
-
-    .board {
-        height: 90vh;
-    }
-
     .score-board {
         flex-direction: column;
         height: 100%;
+    }
+
+    .main-container {
+        height: 40rem;
     }
 
     .player {
