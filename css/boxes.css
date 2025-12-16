@@ -371,6 +371,10 @@ main {
     :root {
         --space-button-long: 5rem;
     }
+
+    .main-container {
+        margin-top: 1rem;
+    }
 }
 
 @media screen and (max-width: 1024px) {
