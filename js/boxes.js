@@ -49,6 +49,24 @@ function start(type, menu = "closed") {
 
     document.documentElement.style.setProperty("--color-random-1", randomColor1);
     document.documentElement.style.setProperty("--color-random-2", randomColor2);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttonH1X1 = document.getElementById('H1X1'); if (!buttonH1X1) return;
+        const buttonV2X2 = document.getElementById('V2X2'); if (!buttonV2X2) return;
+        const buttonH3X1 = document.getElementById('H3X1'); if (!buttonH3X1) return;
+        const buttonV2X1 = document.getElementById('V2X1'); if (!buttonV2X1) return;
+        buttonH1X1.classList.add('shine');
+        setTimeout(() => { buttonV2X2.classList.add('shine'); }, 250);
+        setTimeout(() => { buttonH3X1.classList.add('shine'); }, 500);
+        setTimeout(() => { buttonV2X1.classList.add('shine'); }, 750);
+        setTimeout(() => { buttonH1X1.classList.add('shine'); }, 1000);
+        setTimeout(() => { buttonH1X1.classList.remove('shine'); }, 750);
+        setTimeout(() => { buttonV2X2.classList.remove('shine'); }, 1000);
+        setTimeout(() => { buttonH3X1.classList.remove('shine'); }, 1250);
+        setTimeout(() => { buttonV2X1.classList.remove('shine'); }, 1500);
+        setTimeout(() => { buttonH1X1.classList.add('shine'); }, 1750);
+    });
+
     if (menu === "toggle") { toggleMenu(); }
 }
 
