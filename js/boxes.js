@@ -158,13 +158,21 @@ function calculate(id) {
         turnPlayer2[0].style.visibility = "hidden";
         setTimeout(() => {
             if (captured1 > captured2) {
-                gameResult.textContent = "Player 1 wins.";
+                if (AI === 0) {
+                    gameResult.textContent = "Player 1 wins.";
+                } else {
+                    gameResult.textContent = "You win.";
+                }
                 gameResult.style.color = 'var(--color-random-1)';
                 controlPopup('popup');
                 celebrateWin();
             }
             else if (captured1 < captured2) {
-                gameResult.textContent = "Player 2 wins.";
+                if (AI === 0) {
+                    gameResult.textContent = "Player 2 wins.";
+                } else {
+                    gameResult.textContent = "AI wins.";
+                }
                 gameResult.style.color = 'var(--color-random-2)';
                 controlPopup('popup');
                 celebrateWin();
