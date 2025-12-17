@@ -182,7 +182,7 @@ function calculate(id) {
     }
 
 }
-function goHome() { window.open(`https://toni1elias.github.io/`, '_blank'); }
+function goHome() { window.location.href = '/'; }
 
 function toggleMenu() { document.getElementById("menu").classList.toggle("active"); }
 
