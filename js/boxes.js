@@ -30,12 +30,16 @@ function start(type, menu = "closed") {
 
     boxes[0].player = 0; boxes[0].captured = 0; boxes[0].sides = new Set(["H1X1", "H3X1", "V2X1", "V2X2"]);
     boxes[1].player = 0; boxes[1].captured = 0; boxes[1].sides = new Set(["H1X2", "H3X2", "V2X2", "V2X3"]);
-    boxes[2].player = 0; boxes[2].captured = 0; boxes[2].sides = new Set(["H3X1", "H5X1", "V4X1", "V4X2"]);
-    boxes[3].player = 0; boxes[3].captured = 0; boxes[3].sides = new Set(["H3X2", "H5X2", "V4X2", "V4X3"]);
-    boxes[4].player = 0; boxes[4].captured = 0; boxes[4].sides = new Set(["H5X1", "H7X1", "V6X1", "V6X2"]);
-    boxes[5].player = 0; boxes[5].captured = 0; boxes[5].sides = new Set(["H5X2", "H7X2", "V6X2", "V6X3"]);
-    boxes[6].player = 0; boxes[6].captured = 0; boxes[6].sides = new Set(["H7X1", "H9X1", "V8X1", "V8X2"]);
-    boxes[7].player = 0; boxes[7].captured = 0; boxes[7].sides = new Set(["H7X2", "H9X2", "V8X2", "V8X3"]);
+    boxes[2].player = 0; boxes[2].captured = 0; boxes[2].sides = new Set(["H1X3", "H3X3", "V2X3", "V2X4"]);
+    boxes[3].player = 0; boxes[3].captured = 0; boxes[3].sides = new Set(["H3X1", "H5X1", "V4X1", "V4X2"]);
+    boxes[4].player = 0; boxes[4].captured = 0; boxes[4].sides = new Set(["H3X2", "H5X2", "V4X2", "V4X3"]);
+    boxes[5].player = 0; boxes[5].captured = 0; boxes[5].sides = new Set(["H3X3", "H5X3", "V4X3", "V4X4"]);
+    boxes[6].player = 0; boxes[6].captured = 0; boxes[6].sides = new Set(["H5X1", "H7X1", "V6X1", "V6X2"]);
+    boxes[7].player = 0; boxes[7].captured = 0; boxes[7].sides = new Set(["H5X2", "H7X2", "V6X2", "V6X3"]);
+    boxes[8].player = 0; boxes[8].captured = 0; boxes[8].sides = new Set(["H5X3", "H7X3", "V6X3", "V6X4"]);
+    boxes[9].player = 0; boxes[9].captured = 0; boxes[9].sides = new Set(["H7X1", "H9X1", "V8X1", "V8X2"]);
+    boxes[10].player = 0; boxes[10].captured = 0; boxes[10].sides = new Set(["H7X2", "H9X2", "V8X2", "V8X3"]);
+    boxes[11].player = 0; boxes[11].captured = 0; boxes[11].sides = new Set(["H7X3", "H9X3", "V8X3", "V8X4"]);
 
     // Reset Game:
     buttons.forEach(button => { button.playerClicked1 = 0; button.playerClicked2 = 0; button.style.backgroundColor = 'var(--color-gray-light)'; });
@@ -73,7 +77,7 @@ function start(type, menu = "closed") {
 function game(id) {
     // clicked.push(id);
     calculate(id);
-    if (AI > 0 && turn === 2 && (captured1 + captured2) < 8) {
+    if (AI > 0 && turn === 2 && (captured1 + captured2) < boxes.length) {
         buttons.forEach(button => button.style.pointerEvents = "none"); // Disable clicks.
         selectedButton = null;
         let buttonsEnabled = [...window.buttons].filter(button => button.playerClicked1 === 0 && button.playerClicked2 === 0);
@@ -108,7 +112,7 @@ function game(id) {
 
 function calculate(id) {
     buttons.forEach(button => button.style.pointerEvents = ""); // Enable clicks.
-    if (captured1 + captured2 < 8) {
+    if (captured1 + captured2 < boxes.length) {
         buttons.forEach(button => {
             if (button.id === id && !(button.playerClicked1 || button.playerClicked2)) {
                 // console.clear();
@@ -158,7 +162,7 @@ function calculate(id) {
             turnPlayer2[0].style.visibility = "visible";
         }
     }
-    if (captured1 + captured2 === 8) { // Game End:
+    if (captured1 + captured2 === boxes.length) { // Game End:
         turnPlayer1[0].style.visibility = "hidden";
         turnPlayer2[0].style.visibility = "hidden";
         setTimeout(() => {
