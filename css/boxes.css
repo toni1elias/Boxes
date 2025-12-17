@@ -223,12 +223,24 @@ main {
         opacity: 0;
     }
 
-    100% {
-        opacity: 1;
+    25% {
+        left: -25%;
+        opacity: 0.25;
+    }
+
+    50% {
+        left: 25%;
+        opacity: 0.5;
+    }
+
+    75% {
+        left: 75%;
+        opacity: 0.75;
     }
 
     100% {
         left: 125%;
+        opacity: 1;
     }
 }
 
