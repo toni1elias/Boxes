@@ -182,7 +182,7 @@ function calculate(id) {
     }
 
 }
-function goHome() { window.open(`https://t.me/IT0001Bot`, '_blank'); }
+function goHome() { window.open(`https://toni1elias.github.io/`, '_blank'); }
 
 function toggleMenu() { document.getElementById("menu").classList.toggle("active"); }
 
