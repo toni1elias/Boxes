@@ -13,8 +13,8 @@ soundTap.preload = soundSplash.preload = soundWin.preload = 'auto';
 soundTap.load(); soundSplash.load(); soundWin.load();
 
 function start(type, menu = "closed") {
-    window.colors1 = ["#1F77B4", "#17BECF", "#04bfcf", "#4FB9E0", "#2CA02C", "#5FBF58", "#2ec27e"];
-    window.colors2 = ["#FF7F0E", "#CC9B58", "#D62728", "#CC6E6C", "#9467BD", "#8C564B", "#CC9A00"];
+    window.colors1 = ["#1C71D8", "#2EC27E", "#168253", "#40E0D0"];
+    window.colors2 = ["#E66100", "#C01C28", "#813D9C", "#865E3C"];
     window.randomColor1 = colors1[Math.floor(Math.random() * colors1.length)];
     window.randomColor2 = colors2[Math.floor(Math.random() * colors2.length)];
 
@@ -54,21 +54,12 @@ function start(type, menu = "closed") {
     document.documentElement.style.setProperty("--color-random-1", randomColor1);
     document.documentElement.style.setProperty("--color-random-2", randomColor2);
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const buttonH1X1 = document.getElementById('H1X1'); if (!buttonH1X1) return;
-        const buttonV2X2 = document.getElementById('V2X2'); if (!buttonV2X2) return;
-        const buttonH3X1 = document.getElementById('H3X1'); if (!buttonH3X1) return;
-        const buttonV2X1 = document.getElementById('V2X1'); if (!buttonV2X1) return;
-        buttonH1X1.classList.add('shine');
-        setTimeout(() => { buttonV2X2.classList.add('shine'); }, 250);
-        setTimeout(() => { buttonH3X1.classList.add('shine'); }, 500);
-        setTimeout(() => { buttonV2X1.classList.add('shine'); }, 750);
-        setTimeout(() => { buttonH1X1.classList.add('shine'); }, 1000);
-        setTimeout(() => { buttonH1X1.classList.remove('shine'); }, 750);
-        setTimeout(() => { buttonV2X2.classList.remove('shine'); }, 1000);
-        setTimeout(() => { buttonH3X1.classList.remove('shine'); }, 1250);
-        setTimeout(() => { buttonV2X1.classList.remove('shine'); }, 1500);
-        setTimeout(() => { buttonH1X1.classList.add('shine'); }, 1750);
+    // document.addEventListener('DOMContentLoaded', () => { });
+    let shine = 0;
+    buttons.forEach(button => {
+        setTimeout(() => { button.classList.add('shine'); }, shine);
+        setTimeout(() => { button.classList.remove('shine'); }, shine + 1000);
+        shine += 55;
     });
 
     if (menu === "toggle") { toggleMenu(); }
