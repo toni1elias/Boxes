@@ -7,7 +7,7 @@
     --color-gray-darker: #333333;
     --color-dark: #222222;
     --space-button-short: 1rem;
-    --space-button-long: 6.5rem;
+    --space-button-long: 5rem;
     --space-height: 3.5rem;
 }
 
@@ -207,7 +207,7 @@ main {
 
 .columns {
     display: grid;
-    grid-template-columns: var(--space-button-short) var(--space-button-long) var(--space-button-short) var(--space-button-long) var(--space-button-short);
+    grid-template-columns: var(--space-button-short) var(--space-button-long) var(--space-button-short) var(--space-button-long) var(--space-button-short)var(--space-button-long) var(--space-button-short);
     place-items: center;
 }
 
@@ -361,34 +361,27 @@ main {
     background-color: var(--color-gray-darker);
 }
 
-@media (max-height: 768px) {
-    :root {
-        --space-button-long: 6rem;
-    }
-}
-
 @media (max-height: 667px) {
-    :root {
-        --space-button-long: 5rem;
-    }
-
     .main-container {
         margin-top: 1rem;
     }
 }
 
-@media screen and (max-width: 1024px) {
-    .main-container {
-        position: absolute;
-        transform: translate(-50%, -50%);
-        left: 50%;
-        top: 55%;
+@media (min-width: 414px) {
+    :root {
+        --space-button-long: 6rem;
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media (min-width: 800px) and (min-height: 1000px) {
     :root {
-        --space-button-long: 7rem;
+        --space-button-long: 10rem;
+    }
+}
+
+@media (min-width: 1024px) and (min-height: 750px) {
+    :root {
+        --space-button-long: 7.5rem;
     }
 
     main {
@@ -431,5 +424,14 @@ main {
         left: auto;
         right: 15%;
         transform: translateX(100%);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .main-container {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 55%;
     }
 }
