@@ -29,32 +29,33 @@
         gtag('js', new Date());
         gtag('config', 'G-KSGVWWPV63', {
             'cookie_domain': 'toni1elias.github.io',
+            'cookie_path': '/',
             'cookie_flags': 'SameSite=None;Secure'
         });
-        document.addEventListener("DOMContentLoaded", function () {
-            var banner = document.getElementById("cookie-banner-overlay");
-            var acceptButton = document.getElementById("accept-cookies-btn");
-            var declineButton = document.getElementById("decline-cookies-btn");
-            if (banner && acceptButton && declineButton) {
-                if (!consentStatus) {
-                    banner.style.display = "flex";
-                }
-                acceptButton.addEventListener("click", function () {
-                    banner.style.display = "none";
-                    localStorage.setItem("cookiesAccepted", "true");
-                    gtag('consent', 'update', {
-                        'ad_storage': 'granted',
-                        'analytics_storage': 'granted',
-                        'ad_user_data': 'granted',
-                        'ad_personalization': 'granted'
-                    });
-                });
-                declineButton.addEventListener("click", function () {
-                    banner.style.display = "none";
-                    localStorage.setItem("cookiesAccepted", "false");
-                });
-            }
-        });
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     var banner = document.getElementById("cookie-banner-overlay");
+        //     var acceptButton = document.getElementById("accept-cookies-btn");
+        //     var declineButton = document.getElementById("decline-cookies-btn");
+        //     if (banner && acceptButton && declineButton) {
+        //         if (!consentStatus) {
+        //             banner.style.display = "flex";
+        //         }
+        //         acceptButton.addEventListener("click", function () {
+        //             banner.style.display = "none";
+        //             localStorage.setItem("cookiesAccepted", "true");
+        //             gtag('consent', 'update', {
+        //                 'ad_storage': 'granted',
+        //                 'analytics_storage': 'granted',
+        //                 'ad_user_data': 'granted',
+        //                 'ad_personalization': 'granted'
+        //             });
+        //         });
+        //         declineButton.addEventListener("click", function () {
+        //             banner.style.display = "none";
+        //             localStorage.setItem("cookiesAccepted", "false");
+        //         });
+        //     }
+        // });
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
