@@ -16,12 +16,6 @@
             'ad_personalization': 'denied',
             'wait_for_update': 500
         });
-        gtag('js', new Date());
-        gtag('config', 'G-KSGVWWPV63', {
-            'cookie_domain': 'toni1elias.github.io',
-            'cookie_flags': 'SameSite=None;Secure',
-            'cookie_update': false
-        });
         document.addEventListener("DOMContentLoaded", function () {
             const consent = localStorage.getItem("cookiesAccepted");
             console.log("Consent: " + consent + ".");
@@ -31,6 +25,12 @@
                     'analytics_storage': 'granted',
                     'ad_user_data': 'granted',
                     'ad_personalization': 'granted'
+                });
+                gtag('js', new Date());
+                gtag('config', 'G-KSGVWWPV63', {
+                    'cookie_domain': 'toni1elias.github.io',
+                    'cookie_flags': 'SameSite=None;Secure',
+                    'cookie_update': false
                 });
             }
         });
