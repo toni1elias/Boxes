@@ -9,45 +9,52 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'wait_for_update': 500
-        });
+        var consentStatus = localStorage.getItem("cookiesAccepted");
+        if (consentStatus === "true") {
+            gtag('consent', 'default', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+            });
+        } else {
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+            });
+        }
         gtag('js', new Date());
         gtag('config', 'G-KSGVWWPV63', {
+            'cookie_domain': 'toni1elias.github.io',
             'cookie_flags': 'SameSite=None;Secure',
             'cookie_update': false
         });
         document.addEventListener("DOMContentLoaded", function () {
-            const accepted = localStorage.getItem("cookiesAccepted");
-            if (accepted === "true") {
-                gtag('consent', 'update', {
-                    'ad_storage': 'granted',
-                    'analytics_storage': 'granted',
-                    'ad_user_data': 'granted',
-                    'ad_personalization': 'granted'
+            var banner = document.getElementById("cookie-banner-overlay");
+            var acceptButton = document.getElementById("accept-cookies-btn");
+            var declineButton = document.getElementById("decline-cookies-btn");
+            if (banner && acceptButton && declineButton) {
+                if (!consentStatus) {
+                    banner.style.display = "flex";
+                }
+                acceptButton.addEventListener("click", function () {
+                    banner.style.display = "none";
+                    localStorage.setItem("cookiesAccepted", "true");
+                    gtag('consent', 'update', {
+                        'ad_storage': 'granted',
+                        'analytics_storage': 'granted',
+                        'ad_user_data': 'granted',
+                        'ad_personalization': 'granted'
+                    });
+                });
+                declineButton.addEventListener("click", function () {
+                    banner.style.display = "none";
+                    localStorage.setItem("cookiesAccepted", "false");
                 });
             }
-            // const banner = document.getElementById("cookie-banner-overlay");
-            // if (banner) {
-            //     const acceptButton = document.getElementById("accept-cookies-btn");
-            //     const declineButton = document.getElementById("decline-cookies-btn");
-            //     if (!accepted) { banner.style.display = "flex"; }
-            //     acceptButton.addEventListener("click", function () {
-            //         banner.style.display = "none";
-            //         localStorage.setItem("cookiesAccepted", "true");
-            //         gtag('consent', 'update', {
-            //             'ad_storage': 'granted',
-            //             'analytics_storage': 'granted',
-            //             'ad_user_data': 'granted',
-            //             'ad_personalization': 'granted'
-            //         });
-            //     });
-            //     declineButton.addEventListener("click", function () { banner.style.display = "none"; localStorage.setItem("cookiesAccepted", "false"); });
-            // }
         });
     </script>
     <meta charset="UTF-8">
