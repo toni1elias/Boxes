@@ -9,30 +9,15 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'wait_for_update': 500
+        gtag('js', new Date());
+        gtag('config', 'G-KSGVWWPV63', {
+            'cookie_domain': 'toni1elias.github.io',
+            'cookie_flags': 'SameSite=None;Secure',
+            'cookie_update': false
         });
         document.addEventListener("DOMContentLoaded", function () {
             const consent = localStorage.getItem("cookiesAccepted");
             console.log("Consent: " + consent + ".");
-            if (consent === "true") {
-                gtag('consent', 'update', {
-                    'ad_storage': 'granted',
-                    'analytics_storage': 'granted',
-                    'ad_user_data': 'granted',
-                    'ad_personalization': 'granted'
-                });
-                gtag('js', new Date());
-                gtag('config', 'G-KSGVWWPV63', {
-                    'cookie_domain': 'toni1elias.github.io',
-                    'cookie_flags': 'SameSite=None;Secure',
-                    'cookie_update': false
-                });
-            }
         });
     </script>
     <meta charset="UTF-8">
